@@ -1,0 +1,67 @@
+<section class="main" style="margin-bottom: 250px;">
+    <div class="link">
+        <a href="index.html"><i class="fas fa-paper-plane" style="color: #007bff;"></i> Trang chủ</a> 
+    </div>
+    <div>
+    <section style="text-align: center;">
+        <h4>HÓA ĐƠN ĐĂNG KÝ KHÓA HỌC</h4>
+        <div class="ban">(Bản thể hiện hóa đơn điện tử)</div>
+        <div class="ngay">
+            <p id="date"></p>
+            <script>
+                n = new Date();
+                y = n.getFullYear();
+                m = n.getMonth() + 1;
+                d = n.getDate();
+                document.getElementById("date").innerHTML = "Ngày " + d + " tháng " + m + " năm " + y;
+            </script>
+        </div>
+    </section>
+</div>
+<div>
+    <div class="le dam">BÊN A : TRUNG TÂM TIN HỌC TOKYO</div>
+    <div class="le">Mã số thuế: 0123456787-123</div>
+    <div class="le">Địa chỉ: Số 1, Giang Văn Minh, Phường Kim Mã, Quận Ba Đình, Hà Nội</div>
+    <div class="le doi">Điện thoại: 0333.460.125</div>
+    <div class="le doi">Số tài khoản: 19036042839014</div>
+    <div class="le dam">BÊN B: {{user.name}}</div>
+    <div class="le">Email: {{user.email}}</div>
+    <div class="le">Điện thoại: {{user.phone}}</div>
+    <div class="le">Địa chỉ: {{user.address}}</div>
+    <div class="le doi">Hình thức thanh toán: Trực tuyến</div>
+    <div class="le doi">Ngân hàng: NCB</div>
+    <div class="le doi">Số tài khoản: 9704198526191432198</div>
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Khóa học</th>
+            <th>Số buổi học</th>
+            <th>Học phí</th>
+        </tr>
+        <tr *ngFor="let x of list_items; let index = index">
+            <td>{{index+1}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.countLesson}}</td>
+            <td>{{x.price|number}} VND</td>
+        </tr>
+        
+        <tr>
+            <td class="dam">Tổng</td>
+            <td class="dam"></td>
+            <td class="dam"></td>
+            <td class="dam"><label id="tien">{{tTong|number}} VND</label></td>
+        </tr>
+    </table>
+    <div class="doi dam ky"></div>
+    <div class="doi dam ky">Đại diện TT</div>
+    <div class="doi ky1"></div>
+    <div class="doi ky1">(Ký, ghi rõ họ tên)</div>
+    <div class="doi ky1"></div>
+    <div class="doi ky1">Ly</div>
+    <div class="doi ky1"></div>
+    <div class="doi ky1">Đỗ Thị Ly</div>
+</div>
+</section>
+<div style="text-align: center;padding-bottom: 10px;">
+    <button (click)="Done()">Hoàn thành</button>
+</div>

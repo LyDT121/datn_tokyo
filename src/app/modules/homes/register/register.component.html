@@ -1,0 +1,99 @@
+<section class="main-signup">
+    <div class="box-title">
+        <div class="title">ĐĂNG KÝ</div>
+    </div>
+    <div class="row">
+        <div class="padding-le">
+            <div class="title1">
+                Vui lòng điền vào biểu mẫu này để tạo tài khoản.
+            </div>
+            <form class="webform-client-form webform-client-form-5352" method="post" id="webform-client-form-5352" accept-charset="UTF-8" [formGroup]="frmStudent"
+            (ngSubmit)="onSubmit(frmStudent.value)">
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="name">Họ tên: <span class="form-required"
+                        title="This field is required.">*</span>
+                    </label>
+                </div>
+                <!-- <div class="col-10 col-s-9 margin-bot">
+                    <input class="form-control form-text required" data-val="true" data-val-length="Tên không quá 120 ký tự" data-val-length-max="120"
+                                        data-val-required="Bạn cần nhập tên " id="edit-submitted-name" maxlength="128"
+                                        name="Name" required="required" size="60" type="text"
+                                        placeholder="Họ và tên *" formControlName="txt_tenhocvien">
+                </div> -->
+      
+                <div class="col-10 col-s-9 margin-bot">
+                    <input type="text" name="name" placeholder="" formControlName="txt_name">
+                </div>
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="name">Giới tính: <span class="form-required"
+                        title="This field is required.">*</span>
+                    </label>
+                </div>
+                <div class="col-10 col-s-9 margin-bot">
+                    <select class="select2" formControlName="txt_gender"  class="form-control"
+							style="height: 40px;width: 190px;">
+							<option selected value="0">Nữ</option>
+							<option value="1">Nam</option>
+						</select>
+                </div>
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="name">Năm sinh: <span class="form-required"
+                        title="This field is required.">*</span>
+                    </label>
+                </div>
+                <div class="col-10 col-s-9 margin-bot">
+                    <input type="date" name="phone" id="sdtkh" formControlName="txt_dob" 
+                    class="form-control"  min="1950-01-01" max="2018-12-31">
+                </div>
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="phone">Số điện thoại:<span class="form-required"
+                        title="This field is required.">*</span>
+                    </label>
+                </div>
+                <div class="col-10 col-s-9 margin-bot">
+                    <input type="text" name="phone" placeholder="Nhập số điện thoại khách hàng..." formControlName="txt_phone">
+                </div>
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="email">Email: <span class="form-required"
+                        title="This field is required.">*</span>
+                    </label>
+                </div>
+                <div class="col-10 col-s-9 margin-bot">
+                    <input type="email" name="email" id="emailkh" placeholder="Nhập email khách hàng..." formControlName="txt_email">
+                </div>
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="address">Địa chỉ<span class="form-required"
+                        title="This field is required.">*</span>
+                    </label>
+                </div>
+                <div class="col-10 col-s-9 margin-bot">
+                    <input type="text" name="address" id="diachikh" placeholder="Nhập địa chỉ khách hàng..."formControlName="txt_address">
+                </div>
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="ps">Mật khẩu: <span class="form-required"
+                        title="This field is required.">*</span>
+                    </label>
+                </div>
+                <div class="col-10 col-s-9 margin-bot">
+                    <input type="password" name="ps" placeholder="Nhập mật khẩu khách hàng..." formControlName="txt_password">
+                </div>
+                <div class="col-2 col-s-3 margin-bot">
+                    <label for="ps"><a href="#">
+                        <img
+                            >
+                        </a>
+                    </label>
+                </div>
+                <div class="col-10 col-s-9 margin-bot">
+                    <input (change)="upload($event)" accept=".jpg,.png,.jpeg,.gif,.bmp,.tif,.tiff"
+										type="file" class="file-styled">
+									<span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                </div>
+                <div class="clearfix">
+                    <button class="webform-submit button-primary btn btn-primary form-submit" value="Submit"
+                                        type="submit">Đăng ký</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

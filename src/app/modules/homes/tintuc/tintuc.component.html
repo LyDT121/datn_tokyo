@@ -1,0 +1,48 @@
+<div class="link-out">
+    <div class="link">
+        <a href="index.html"><i class="fas fa-paper-plane" style="color: #007bff;"></i> Trang chủ</a> <i class="fas fa-caret-right"></i> Tin tức
+    </div>
+</div>
+<section class="content-in">
+    <div class="row">
+        <div class="col-8 col-s-12 content">
+            <div class="row1"  *ngFor="let t of list_tintuc">
+                <div class="col-3 col-s-3">
+                    <a href="#"><img src="{{t.image}}" class="img-new-left"></a>
+                </div>
+                <div class="col-9 col-s-9">
+                    <div class="title-new">
+                        <a href="#"> {{t.title}}</a>
+                        <p>{{t.description}}</p>
+                        <span><i class="fas far fa-calendar-alt"></i> {{t.lastEditDate|date:'dd/MM/YYYY'}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="seemore">
+                <button>XEM THÊM</button>
+            </div>
+        </div>
+        <div class="col-4 content1">
+            <div class="box-right">
+                <p class="title">NHẬN XÉT CỦA HỌC VIÊN</p>
+                    <div class="box-right-small" *ngFor="let dg of list_danhgia">
+                        <div class="img-small"><a href="#"><img src="{{dg.image}}"></a></div>
+                        <div class="txt-small">
+                            <a href="#" style="
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            line-height: 25px;
+                            -webkit-line-clamp: 3;
+                            height: 75px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                                ">{{dg.description}}</a>
+                            <span><i class="fas fa-user"></i> {{dg.name}}</span>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</section>

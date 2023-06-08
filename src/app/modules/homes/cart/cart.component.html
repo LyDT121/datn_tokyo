@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/assets/css/style_cart.css">
+<section class="main">
+    <div class="link">
+        <a href="index.html"><i class="fas fa-paper-plane" style="color: #007bff;"></i>Tiếp tục mua sắm</a> 
+    </div>
+    <div class="title">Giỏ hàng</div>
+    <div class="row">
+        <div class="colf-9 colf-s-12 padding-table">
+            <table class="table-prod">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th></th>
+                        <th>KHÓA HỌC</th>
+                        <th>SỐ BUỔI HỌC</th>
+                        <th>GIÁ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of list ;let index = index">
+						<td>{{index+1}}</td>
+                        <td><img style="width: 50px; height: 50px;" src="{{x.image}}"> </td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.countLesson}}</td>
+                        <td>{{x.price|number}} VND</td>
+                        <td><i (click)="Xoa(x.id)" class="fa fa-times-circle" style="font-size:15px;color:red;cursor: pointer;" 
+                            title="Xóa"></i></td>
+
+                    </tr> 
+                </tbody>
+            </table>
+            <div class="update">
+                <button (click)="updateCart()">Cập nhật giỏ hàng</button>
+                <button (click)="XoaCart()">Xóa giỏ hàng</button>
+            </div>
+        </div>
+        <div class="colf-3 colf-s-12 right padding-table">
+            <table class="table-right">
+                <tr>
+                    <td colspan="2" class="title">CỘNG GIỎ HÀNG</td>
+
+                </tr>
+                <tr>
+                    <td class="h">Tạm tính</td>
+                    <td class="price h">{{tTong|number}} VND</td>
+                </tr>
+                <tr>
+                    <td>Tổng</td>
+                    <td class="price">{{tTong|number}} VND</td>
+                </tr>
+            </table>
+            <div class="pay">
+                <button (click)="ThanhToan()">Tiến hành thanh toán</button>
+            </div>
+        </div>
+    </div>
+</section>

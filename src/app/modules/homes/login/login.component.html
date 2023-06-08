@@ -1,0 +1,50 @@
+<section class="main-login">
+    <div class="box-title">
+        <div class="title">ĐĂNG NHẬP</div>
+    </div>
+    <div class="row">
+        <div class="col-6 col-s-12 padding-le">
+            <div class="title1">
+                Thông tin khách hàng đăng nhập hệ thống.
+            </div>
+            <form id="lginKH"  [formGroup]="frmLogin" (ngSubmit)="Login()">
+                <div class="col-5 col-s-12 margin-bot" *ngIf="taikhoan.invalid && (taikhoan.dirty || taikhoan.touched)">
+                    <span style="color:red ;" *ngIf="taikhoan.errors?.['required']">Tài khoản không được rỗng</span>
+                </div>
+                <div class="col-7 col-s-12 margin-bot">
+                    <input formControlName="txt_taikhoan" type="text" class="form-control" placeholder="Tài khoản" ngModel>
+                    <div class="form-control-feedback">
+                        <i class="icon-user text-muted"></i>
+                    </div>
+                </div>
+                <div class="col-5 col-s-12 margin-bot"  *ngIf="matkhau.invalid && (matkhau.dirty || matkhau.touched)">
+                    <span style="color:red ;" *ngIf="matkhau.errors?.['required']">Mật khẩu không được rỗng</span>
+                </div>
+                <div class="col-7 col-s-12 margin-bot">
+                    <input formControlName="txt_matkhau" type="password" class="form-control" placeholder="Mật khẩu" ngModel>
+                    <div class="form-control-feedback">
+                        <i class="icon-lock2 text-muted"></i>
+                    </div>
+                </div>
+                <div style="color:red ;" *ngIf="error">
+                    Tài khoản hoặc mật khẩu không đúng!
+                </div>
+                <div class="clearfix">
+                    <button [disabled]="frmLogin.invalid" type="submit" style="background-color: #00a2ff;" >Đăng nhập</button>
+                </div>
+                <a [routerLink]="['/homes/misspass']" id="i" style="padding-left: 188px;">Quên mật khẩu</a>
+            </form>
+            <div class="btn-login-as">
+                <button style="background-color: #0b4cc5;"><i class="fab fa-facebook-square"></i> Đăng nhập bằng
+                    Facebook</button>
+                <button style="background-color: #d11919;"><i class="fab fa-google-plus-square"></i> Đăng nhập
+                    bằng Google</button>
+            </div>
+        </div>
+        <div class="col-6 col-s-12 padding-le">
+            <p class="p1" style="color: black;">Bạn chưa là thành viên.</p>
+            <p class="p2" style="color: black;">Đăng ký là thành viên để hưởng nhiều lợi ích và đặt mua hàng dễ dàng hơn.</p>
+            <a [routerLink]="['/homes/register']" id="i">Đăng ký tài khoản</a>
+        </div>
+    </div>
+</section>

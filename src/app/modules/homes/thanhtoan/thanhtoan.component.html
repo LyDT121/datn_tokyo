@@ -1,0 +1,89 @@
+<!-- Checkout Section Begin -->
+<section class="main">
+    <div class="link">
+        <a href="/homes/cart"><i class="fas fa-paper-plane" style="color: #007bff;"></i> Quay lại giỏ hàng</a> 
+    </div>
+    <div class="row">
+        <!-- <form [formGroup]="frmKhach" (ngSubmit)="onSubmit(frmKhach.value)"> -->
+        <form style="margin: 0px;width: 100%;">
+            <div class="col-6 col-s-12 padding-form">
+                <div class="title">THÔNG TIN KHÁCH HÀNG</div>
+                <div class="row">
+                    <div class="col-12 col-s-12">
+                        <label for="txt_hoten">Họ tên: <span>{{user.name}}</span>
+                        </label> 
+                        <br>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-s-12">
+                        <label for="txt_sdt">Số điện thoại: <span>{{user.phone}}</span>
+                        
+                        </label><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-s-12">
+                        <label for="txt_email">Email: <span>{{user.email}}</span>
+                            
+                        </label><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-s-12">
+                        <label for="txt_diachi">Địa chỉ liên hệ: <span>{{user.address}}</span>
+                            
+                        </label><br>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="col-6 col-s-12 padding-form" >
+                <div class="title">ĐƠN HÀNG</div>
+                <div class="row pay" style="border-bottom: 3px solid #dbdbdb;">
+                    <div class="col-6 col-s-12" style="text-align: left; font-weight: bold;">
+                        <label>Khóa học</label>
+                    </div>
+                    <div class="col-6 col-s-12" style="text-align: right; font-weight: bold;">
+                        <label>Học phí</label>
+                    </div>
+                </div>
+                <div class="row pay" *ngFor="let it of list_items">
+                    <div class="col-6 col-s-12" style="text-align: left;">
+                        <label>{{it.name}}</label>
+                    </div>
+                    <div class="col-6 col-s-12" style="text-align: right;">
+                        <label>{{it.price|number}} VND</label>
+                    </div>
+                </div>
+
+                <div class="row trace">
+                    <div class="col-6 col-s-12" style="text-align: left;">
+                        <label>Tổng</label>
+                    </div>
+                    <div class="col-6 col-s-12" style="text-align: right;">
+                        <label>{{tTong|number}} VND</label>
+                    </div>
+                </div> 
+
+               
+            
+                <div class="row pay">
+                    <div class="col-12 col-s-12" style="text-align: left;">
+                        <button 
+                            *ngIf="this.user"
+                            type="submit"
+                            (click)="DatHang()"
+                        >
+                        ĐẶT HÀNG
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+    <!-- Checkout Section End -->

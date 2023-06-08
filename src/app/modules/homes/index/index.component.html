@@ -1,0 +1,258 @@
+
+<!-- Sản phẩm mới nhất -->
+<section class="module_products">
+    <div class="section-title">
+        <h4>KHÓA HỌC MỚI NHẤT</h4>
+    </div>
+    <div class="direction">
+        <button id="prev"> < </button>
+        <button id="next"> > </button>
+    </div>
+    <div id="formList">    
+        <div id="list" *ngFor="let spnew of sp_moi"  style="text-align: center;">
+            <div class="product__item__pic set-bg" style="height: 200px">
+                <a [routerLink]="['/homes/detail',spnew.id]"><img src="{{spnew.image}}" style="height: 183.95px; width: 262.93px;"></a>
+            </div>
+            <div class="item" >
+                <div class="product__item__text">
+                    <div class="a">{{spnew.name}}</div>
+                    <div class="product__price">{{spnew.price| number}} VND </div>
+                </div>
+            </div>
+
+        </div>
+    </div> 
+    
+</section>
+
+
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="section-title">
+                    <h4>KHÓA HỌC</h4>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*" (click)="handleChangeCategory(null)">All</li>
+                    <li data-filter=".women" (click)="handleChangeCategory(mn.id)" *ngFor="let mn of courseCategory">
+                        {{mn.name}}</li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row property__gallery">
+            <div class="col-2 col-s-3 women" *ngFor="let sp of list_item | 
+                paginate: { itemsPerPage: tableSize , currentPage: page, totalItems: count }; 
+                let i=index" class="col-lg-3 col-sm-8">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" style="height: 200px">
+                        <a [routerLink]="['/homes/detail',sp.id]"><img src="{{sp.image}}" style="height: 183.95px;"></a>
+
+                    </div>
+                    <div class="product__item__text">
+                        <div class="a">{{sp.name}}</div>
+                        <div class="a">Số buổi học:{{sp.countLesson}}</div>
+                        <div class="product__price">{{sp.price| number}} VND </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div style="text-align: center;">
+            <pagination-controls previousLabel="Trước" nextLabel="Sau"
+                (pageChange)="onTableDataChange($event)"></pagination-controls>
+        </div>
+
+    </div>
+</section>
+<!-- Product Section End -->
+
+<!-- Teacher Section Begin -->
+<section class="product spad" style="padding-top:0px;">
+    <div class="container">
+        <div class="row">
+            <div class="section-title" style="margin-left: 14px;">
+                <h4>ĐỘI NGŨ GIẢNG VIÊN</h4>
+            </div>
+
+        </div> 
+        
+            <div id="formList">
+                
+                <div id="list" *ngFor="let sp of list_giaovien" >
+                    <div class="item">
+                        <img src="{{sp.avatar}}" class="avatar">
+                        <div class="content">
+                            <table width="100%" cellspacing="0">
+                                <tr>
+                                    <td style="font-size: 18px;">{{sp.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{sp.description}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+            <!-- <div class="direction">
+                <button id="prev"> < </button>
+                <button id="next"> > </button>
+            </div> -->
+
+    </div>
+</section>
+<!-- Teacher Section End -->
+
+
+
+
+<section class="product spad" style="padding-top:0px;">
+    <div class="container">
+        <div class="row">
+            <div class="section-title" style="margin-left: 14px;">
+                <h4>Học viên nói gì?</h4>
+            </div>
+
+        </div> 
+            <div id="formList">
+                
+                <div id="list" *ngFor="let dg of list_danhgia" >
+                    <h4 class="card-title" style="display:none!;"><img src="https://img.icons8.com/ultraviolet/40/000000/quote-left.png"></h4>
+                    <div class="item" >
+                        <a href="#" style="    
+                                font-family: math;
+                                padding-bottom: 10px;
+                                color: black;
+                                margin: 5px;
+                                    ">{{dg.description}}</a>
+                        
+                        <div class="content" style="display: flex;">
+                                <span style=" margin-left: 0px;">
+                                    <tr>
+                                        <td><img src="{{dg.image}}" alt="" style="height: 40px; width: 40px;"></td>
+                                        <td style="font-size: 15px; font-family: serif;"><i>{{dg.name}}</i></td>
+                                    </tr>
+                                    </span>
+                        </div>
+                    </div>
+        
+                </div>
+            </div> 
+           
+
+    </div>
+</section>
+
+<!-- Discount Section Begin -->
+<div class="front_content_2">
+    <div class="region region-front-content-2">
+        <section id="block-webform-client-block-5352" class="block block-webform form_register col-sm-12 clearfix">
+            <div class="container">
+                <h2 class="block-title">ĐĂNG KÝ NHẬN TƯ VẤN </h2>
+                <h3>Bạn vui lòng điền đầy đủ thông tin và click đăng ký. Chúng tôi sẽ liên lạc với bạn trong thời gian
+                    sớm nhất</h3>
+                <div class="row">
+                    <div id="webform-ajax-wrapper-5352">
+                        <form class="webform-client-form webform-client-form-5352" method="post"
+                            id="webform-client-form-5352" accept-charset="UTF-8" [formGroup]="frmStudent"
+                            (ngSubmit)="onSubmit(frmStudent.value)">
+                            <div>
+                                <div
+                                    class="form-item webform-component webform-component-textfield webform-component--name">
+                                    <label for="edit-submitted-e-mail">Họ và tên <span class="form-required"
+                                            title="This field is required.">*</span></label> <input
+                                        class="form-control form-text required" data-val="true"
+                                        data-val-length="Tên không quá 120 ký tự" data-val-length-max="120"
+                                        data-val-required="Bạn cần nhập tên " id="edit-submitted-name" maxlength="128"
+                                        name="Name" required="required" size="60" type="text" value=""
+                                        placeholder="Họ và tên *" formControlName="txt_tenhocvien">
+
+                                </div>
+
+
+                                <div
+                                    class="form-item webform-component webform-component-email webform-component--e-mail">
+                                    <label for="edit-submitted-e-mail">E-mail <span class="form-required"
+                                            title="This field is required.">*</span></label> <input
+                                        class="form-control form-text required" data-val="true"
+                                        data-val-email="Địa chỉ email không đúng."
+                                        data-val-required="Bạn cần nhập email." id="edit-submitted-email"
+                                        maxlength="128" name="Email" required="required" size="60" type="text" value=""
+                                        placeholder="E-mail *" formControlName="txt_email">
+                                </div>
+                                <div
+                                    class="form-item webform-component webform-component-textfield webform-component--phone">
+                                    <label for="edit-submitted-phone">Điện thoại <span class="form-required"
+                                            title="This field is required.">*</span></label> <input
+                                        class="form-control form-text required" data-val="true"
+                                        data-val-length="Số điện thoại không quá 10 ký tự" data-val-length-max="10"
+                                        data-val-required="Bạn cần nhập số điện thoại." id="edit-submitted-email"
+                                        maxlength="128" name="Phone" required="required" size="60" type="text" value=""
+                                        placeholder="Điện thoại *" formControlName="txt_phone">
+                                </div>
+                                <div
+                                    class="form-item webform-component webform-component-textfield webform-component--phone">
+                                    <label for="edit-submitted-phone">Địa chỉ <span class="form-required"
+                                            title="This field is required.">*</span></label> <input
+                                        class="form-control form-text required" data-val="true"
+                                        data-val-length="Địa chỉ không quá viết tắt" data-val-length-max="120"
+                                        data-val-required="Bạn cần nhập địa chỉ " id="edit-submitted-name"
+                                        maxlength="128" name="Name" required="required" size="60" type="text" value=""
+                                        placeholder="Địa chỉ *" formControlName="txt_address">
+                                </div>
+                                <fieldset class="captcha panel panel-default form-wrapper">
+
+                                    <div class="panel-body">
+                                        <div class="form-type-textfield form-item-captcha-response form-item form-group"
+                                            data-toggle="tooltip" title="" data-original-title="Fill in the blank.">
+                                            <label for="edit-captcha-response">Nhập thông tin cần tư vấn<span
+                                                    class="form-required"
+                                                    title="This field is required.">*</span></label> <input
+                                                class="form-control form-text" id="edit-submitted-desc" maxlength="500"
+                                                name="Description" size="50" type="text" value=""
+                                                placeholder="Nhập thông tin cần tư vấn*"
+                                                formControlName="txt_description">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <button class="webform-submit button-primary btn btn-primary form-submit" value="Submit"
+                                    type="submit">Đăng ký</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Discount Section End -->
+
+<!-- Services Section Begin -->
+<section class="services spad">
+    <div class="container">
+        <div class="row" style="padding-top: 40px;">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-support"></i>
+                    <h6>Hỗ trợ trực tuyến 24/7</h6>
+                    <p style="color: black;">Hỗ trợ tận tình</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-headphones"></i>
+                    <h6>Thanh toán</h6>
+                    <p style="color: black;">100% thanh toán an toàn</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services Section End -->

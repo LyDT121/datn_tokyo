@@ -1,0 +1,31 @@
+
+
+<div class="link" style="padding-left: 70px;
+padding-top: 20px;
+font-size: 20px;">
+    <a href="index.html"><i class="fas fa-paper-plane" style="color: #007bff;"></i> Trang chủ</a> <i class="fas fa-caret-right"></i><a href="#">{{list_item[0].cateName}}</a> 
+</div>
+<div class="box-bottom" style="padding-left: 70px;
+padding-right: 70px;
+font-size: 20px;">
+    <div class="row">
+        <div class="col-2 col-s-3 women" *ngFor="let sp of list_item | 
+        paginate: { itemsPerPage: tableSize , currentPage: page, totalItems: count }; 
+        let i=index" class="col-lg-3 col-sm-8" >
+        <div class="product__item" >
+            <div class="product__item__pic set-bg">
+                <a [routerLink]="['/homes/detail',sp.id]"><img src="{{sp.image}}"></a>
+            </div>
+            <div class="product__item__text">
+                <div class="a">{{sp.courseName}}</div>
+                <div class="product__price">{{sp.price| number}} VND </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div style="text-align: center;">
+    <pagination-controls previousLabel="Prev" nextLable="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
+</div>
+

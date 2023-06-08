@@ -1,0 +1,20 @@
+<section class="main-misspass">
+    <div class="box-title">
+        <div class="title">QUÊN MẬT KHẨU</div>
+    </div>
+    <div class="row">
+        <form action="" method="POST" style="width: 1000px;
+        margin-bottom: 15px;" (submit)="submit()">
+            <div class="padding-le">
+                <div class="title1">
+                    Vui lòng nhập địa chỉ email/tài khoản để khôi phục mật khẩu. 
+                </div>
+                <div class="col-2 col-s-3 margin-bot"><label for="uname">Email/Tài khoản</label></div>
+                <div class="col-10 col-s-9 margin-bot"><input type="text" name="uname" [(ngModel)]="email" required></div>
+                <div class="clearfix col-12 col-s-12">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

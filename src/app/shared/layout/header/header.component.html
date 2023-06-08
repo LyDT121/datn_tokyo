@@ -1,0 +1,164 @@
+<button onclick="topFunction()" id="myBtn"><i class="fas fa-angle-up"></i></button>
+    <script src="js/hide_menu.js"></script>
+    <section class="header-i-out">
+        <div class="header-inner" id="hideInner">
+            <a href="#"><i class="fas fa-dollar-sign"></i> Cam kết chất lượng</a>
+            <a href="#"><i class="fas fa-history"></i> Hoàn tiền nếu không hiệu quả</a>
+            <span class="sp-h-in-r" id="boxrighttop" *ngIf="!user">
+                <a [routerLink]="['homes/login']" id="i"><i class="fas fa-user"></i> Đăng nhập</a>
+                <a  [routerLink]="['homes/register']" id="i"><i class="fas fa-user-plus"></i> Đăng ký</a>
+            </span>
+            <div class="box-right-top-KH" id="boxrighttopKH" *ngIf="user">
+                <a id="i">
+                    <span id="tenkhachhang">Xin chào, {{user.name}}
+                    <!-- <img src="{{user.avatar}}" alt=""> -->
+                </span>
+                    
+                </a>
+                <div class="box-login-bottom" id="box-b">
+                    <!-- <a [routerLink]="['homes/information',user.id]"> Thông tin cá nhân</a> -->
+                    <button [routerLink]="['homes/information',user.id]"><i class="fas fa-user-alt"></i> Tài khoản</button>
+                    <button (click)="View(user.id)"><i class="fas fa-user-alt"></i> Lịch sử đăng ký</button>
+                    <button (click)="Logout()"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <section class="header-m-out">
+        <div class="header-mid" id="hideMid">
+            <a href="index.html" id="m"><img src="assets/images/logo.jpg"></a>
+            <a href="index.html" id="m"><img src="assets/images/poster.jpg" style="padding-left: 259px;
+                padding-right: 70px;"></a>
+            <a  [routerLink]="['homes/cart']" class="cart"><i class="fas fas fa-shopping-cart"></i>
+                <span  style="position: absolute ; top:0px; right: -10px; width: 23px ; height: 23px ; border-radius: 50% ; background-color: red ; font-size:14px ; line-height:23px ; text-align: center; color: white; font-weight: bold;">{{sosanphams}}</span>
+            </a>
+           
+            <form class="search" action="#" id="m">
+                <input type="text" placeholder="Tìm kiếm sản phẩm..." name="search_prod" ng-model="searchName">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="mid-small" id="lg">
+                <a href="index.html"><img src="assets/images/logo.jpg"></a>
+            </div>
+            <a href="javascript:void(0);" class="icon-mid" onclick="openNavMid()" id="lg"><i
+                    class="fas fa-bars"></i></a>
+            <script src="js/hide_menu.js"></script>
+        </div>
+        <div class="sidenavMid" id="mySidenavMid">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNavMid()"><i
+                    class="far fa-window-close"></i></a>
+            <form class="search" action="#">
+                <input type="text" placeholder="Tìm kiếm sản phẩm..." name="search_prod">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <hr>
+            <a href="signup.html" class="text-res"><i class="far fa-user-circle"></i> Đăng ký</a>
+            <a href="login.html" class="text-res"><i class="far fa-user-circle"></i> Đăng nhập</a>
+            <hr>
+            <ul>
+                <li><a href="#"><i class="fas fa-phone-volume"></i> Bán hàng trực tuyến</a></li>
+                <li><a href="MuaTraGop.html"><i class="fas fa-money-check-alt"></i> Mua trả góp</a></li>
+                <li><a href="#"><i class="fas fa-cart-arrow-down"></i> Khuyến mại</a></li>
+                <li><a href="TinTuc.html"><i class="far fa-newspaper"></i> Tin tức</a></li>
+            </ul>
+        </div>
+        <script src="js/hide_menu.js"></script>
+    </section>
+    <section class="header-b-out">
+        <div class="header-bottom" id="hideBottom">
+            <ul>
+                <li><a href="#"><b><span class="sp-h-bot">Trang chủ</span></b></a></li>
+                <li><a href="#" ><b><span class="sp-h-bot category" > Danh mục khóa học</span></b></a>
+                                <ul class="submenu" style="margin-left: 440px;">
+                                    <li *ngFor="let mn of loaisp">
+                                        <a [routerLink]="['homes/sploai',mn.id]"> {{mn.name}}</a>                                 
+                                    </li>
+                                </ul>
+                </li>
+                <li><a [routerLink]="['homes/course']"><b><span class="sp-h-bot"> Khóa học
+                    </span></b></a>
+    </li>
+                <li><a [routerLink]="['homes/tintuc']"><b><span class="sp-h-bot"> Tin
+                                    tức</span></b></a>
+                    </li>
+                <li><a [routerLink]="['homes/contact']"><b><span class="sp-h-bot"> Liên hệ</span></b></a></li>
+                <li><a [routerLink]="['homes/gioithieu']"><b><span class="sp-h-bot"> Giới thiệu</span></b></a></li>
+                
+            </ul>
+            <a href="javascript:void(0);" class="icon" onclick="openNav()">
+                <i class="fas fa-bars"></i>
+            </a>
+            <script src="js/hide_menu.js"></script>
+        </div>
+
+        <script src="js/hide_menu.js"></script>
+    </section>
+    <section class="slide-out">
+        <div class="slideshow">
+            <img class="silde_img slide_auto" src="assets/images/banner.jpg">
+        </div>
+        <script src="js/slide_show.js"></script>
+    </section>
+
+    <div class="modal fade" id="createdetailModal" role="dialog">
+        <div class="modal-dialog modal-xl ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Thông tin</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <hr>
+            <form *ngIf="doneSetupForm"   class="form-horizontal">
+              <div class="modal-body" style="padding-left: 50px !important; padding-right:50px !important;">
+                <div class="row">
+                    
+                    
+                    <div class="form-group">
+                        <div class="table-responsive">
+                        <table class="table display data-table text-nowrap">
+                            <thead>
+                            <tr >
+                                
+                                <th>Tên khóa học</th>
+                                <th>Tên giảng viên</th>
+                                <th>Số buổi</th>
+                                <th>Học phí</th>
+                                <th>Ngày BĐ</th>
+                                <th>Ngày KT</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody *ngFor="let i of lstStudentbyID">
+                            <tr>
+                                <!-- <td><img style="height:50px; width: 50px;" src="{{i.image}}"></td> -->
+                                <td>{{i.coursesName}}</td>
+                                <td>{{i.teacherName}}</td>
+                                <td>{{i.countLesson}}</td>
+                                <td>{{i.price| number}}</td>
+                                <td>{{i.startDate |date:'d/M/YYYY '}}</td>
+                                <td>{{i.endDate | date:'d/M/YYYY'}}</td>
+                                <td>
+                                    
+                                    <a href="#" class="button joinclass"[routerLink]="['homes/study',i.coursesId]">
+                                       
+                                        <button name="button" type="button" ><i class="fa fa-share"></i> Vào học</button>
+                                    </a>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                            
+                        </table>
+                        
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+              <hr>
+              
+            </form>
+          </div>
+        </div>
+      </div>

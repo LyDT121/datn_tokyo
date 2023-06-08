@@ -1,0 +1,62 @@
+*[_ngcontent-mom-c68] {
+    margin: auto;
+    padding: initial;
+}
+table {
+    margin-top: 15px;
+    width: 100%;
+}
+
+body {
+    width: 900px;
+    margin: 0 auto;
+}
+
+tr {
+    line-height: 27px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.ngay {
+    font-style: italic;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.ban {
+    font-style: italic;
+    font-size: 15px;
+    margin: 3px 0px;
+}
+
+.dam {
+    font-weight: bold;
+}
+
+.le {
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+
+.doi {
+    width: 50%;
+    float: left;
+}
+
+.ky {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ky1 {
+    font-style: italic;
+    text-align: center;
+    margin-top: 5px;
+}

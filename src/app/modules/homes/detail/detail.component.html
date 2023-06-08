@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="/assets/css/style_detail_screen.css">
+<div class="link-out">
+    <div class="link">
+        <a href="index.html"><i class="fas fa-paper-plane" style="color: #007bff;"></i> Trang chủ</a> <i
+            class="fas fa-caret-right"></i><a href="#">{{item.courseCategoryName}}</a> <i
+            class="fas fa-caret-right"></i>{{item.name}}
+    </div>
+</div>
+<section class="content-inner">
+    <div class="row">
+        <div class="colc-4 colc-s-6 content">
+            <div class="container">
+
+                <div class="mySlides">
+                    <img src="{{item.image}}">
+                </div>
+
+            </div>
+            <script src="js/image_product.js"></script>
+        </div>
+        <div class="colc-5 colc-s-6 content padding-le">
+            <div class="name">{{item.name}}</div>
+            <div class="evaluate"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                    class="fas fa-star"></i><i class="fas fa-star"></i> <span class="sp-eval"><a href="#cont-cmt">(1
+                        đánh giá của khách hàng)</a></span></div>
+            <div class="price"><span class="down">{{item.price| number}} VND </span></div>
+
+            <div class="product__details__button">
+                <button type="button" class="btnAdd" (click)="addToCart(item)"><i class="fas fa-cart-plus"></i> Thêm vào
+                    giỏ hàng</button>
+            </div>
+            <script src="assets/js/cart.js"></script>
+        </div>
+        <div class="colc-3 content" id="r">
+            <div class="commitment">
+                <div class="title">THÔNG TIN KHÓA HỌC</div>
+                <div class="content">
+                    <li>Số buổi học: {{item.countLesson}}</li>
+                    <li>Khai giảng: {{item.startDate | date: 'dd/MM/yyyy'}}</li>
+                    <li>Kết thúc: {{item.endDate | date: 'dd/MM/yyyy'}}</li>
+                </div>
+            </div>
+            <div class="commitment1">
+                <div class="title">GIÁO VIÊN</div>
+                <div class="content">
+                    <li>Họ tên: {{item.teacherName}}</li>
+                    <li>Chức danh: {{item.teacherDescription}}</li>
+                    <li>Email: {{item.teacherEmail}}</li>
+                </div>
+            </div>
+            <!-- <div class="commitment1">
+                <div class="title">THÔNG TIN BÀI HỌC</div>
+                <div class="content">
+                    <li *ngFor="let ls of lesson"><i class="fa fa-file-text-o" aria-hidden="true"></i> {{ls.title}}</li>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+</section>
+
+<section class="describe">
+    <div class="title padding_title" id="MoTa">MÔ TẢ</div>
+    <div class="title1">Giới thiệu sản phẩm:</div>
+    <h6 style="padding: 20px 0px 20px 0px;">{{item.description}}</h6>
+</section>
+<section class="describe">
+    <div class="title padding_title" id="MoTa">THÔNG TIN BÀI HỌC</div>
+    <div class="content">
+        <li *ngFor="let ls of lesson"><i class="fa fa-file-text-o" aria-hidden="true"></i> {{ls.title}}</li>
+    </div>
+</section>
+<section class="comment">
+    <div class="title padding_title" id="BinhLuan">BÌNH LUẬN</div>
+    <div class="title1 padding_title" id="cont-cmt">1 đánh giá cho {{item.name}}</div>
+    <div class="box">
+        <span class="point">5.00 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></span>
+        <span class="count"><a href="#cont-cmt">1 đánh giá của khách hàng</a></span>
+        <div class="ratio">
+            <div class="level">5<i class="fas fa-star"></i></div>
+            <div class="progressBar">
+                <div class="percentage"></div>
+            </div>
+            <div class="status"><span class="sp-status">100%</span> | 1 đánh giá</div>
+        </div>
+        <div class="ratio">
+            <div class="level">4<i class="fas fa-star"></i></div>
+            <div class="progressBar"></div>
+            <div class="status"><span class="sp-status">0%</span> | 0 đánh giá</div>
+        </div>
+        <div class="ratio">
+            <div class="level">3<i class="fas fa-star"></i></div>
+            <div class="progressBar"></div>
+            <div class="status"><span class="sp-status">0%</span> | 0 đánh giá</div>
+        </div>
+        <div class="ratio">
+            <div class="level">2<i class="fas fa-star"></i></div>
+            <div class="progressBar"></div>
+            <div class="status"><span class="sp-status">0%</span> | 0 đánh giá</div>
+        </div>
+        <div class="ratio">
+            <div class="level">1<i class="fas fa-star"></i></div>
+            <div class="progressBar"></div>
+            <div class="status"><span class="sp-status">0%</span> | 0 đánh giá</div>
+        </div>
+        <button type="button" class="btn-right" id="ri">ĐÁNH GIÁ NGAY</button>
+        <button type="button" class="btn-bottom" id="bo">ĐÁNH GIÁ NGAY</button>
+    </div>
+    <div class="cmt">
+        <div class="nameUser">Thuan Nguyen</div>
+        <div class="content-cmt">
+            <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                    class="fas fa-star"></i><i class="fas fa-star"></i></span>Khóa học hiệu quả
+        </div>
+        <div class="time">
+            <a href="#">Thảo luận</a> <span>• 14/05/2021</span>
+        </div>
+        <hr>
+    </div>
+  
+</section>
+<section class="advisory">
+
+    <section class="module_products">
+        <div class="product_title">
+            <a href="#"><b>SẢN PHẨM TƯƠNG TỰ</b></a>
+        </div>
+
+
+
+        <div class="row property__gallery">
+            <div class="col-2 col-s-3 " *ngFor="let sp of list_loaisp | 
+            paginate: { itemsPerPage: tableSize , currentPage: page, totalItems: count }; 
+            let i=index" class="col-lg-3 col-sm-8">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" style="height: 200px">
+                        <a [routerLink]="['/homes/detail',sp.courseId]"><img src="{{sp.image}}" style="height: 194.31px;"></a>
+
+                    </div>
+                    <div class="product__item__text">
+                        <div class="a">{{sp.courseName}}</div>
+                        <div class="a">Số buổi học:{{sp.countLesson}}</div>
+                        <div class="product__price">{{sp.price| number}} VND </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div style="text-align: center;">
+            <pagination-controls previousLabel="Prev" nextLable="Next"
+                (pageChange)="onTableDataChange($event)"></pagination-controls>
+        </div>
+    </section>

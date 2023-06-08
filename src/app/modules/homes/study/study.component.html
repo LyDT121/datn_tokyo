@@ -1,0 +1,94 @@
+	<!-- Course -->
+	<div class="course">
+		<div class="container" style="max-width: 1325px;">
+			<div class="row" let item =index>
+
+				<!-- Course -->
+				<div class="col-lg-8">
+					
+					<div class="course_container">
+						<div class="course_info d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+
+							<!-- Course Info Item -->
+							<div class="course_info_item">
+								<div class="course_info_title">Giáo viên:</div>
+								<div class="course_info_text"><a href="#">{{list_item[0]?.teacherName}}</a></div>
+							</div>
+
+							<!-- Course Info Item -->
+							<div class="course_info_item">
+								<div class="course_info_title">Đánh giá:</div>
+								<div class="rating_r rating_r_4"><i></i><i></i><i></i><i></i><i></i></div>
+							</div>
+
+							<!-- Course Info Item -->
+							<div class="course_info_item">
+								<div class="course_info_title">Danh mục:</div>
+								<div class="course_info_text"><a href="#">{{list_item[0]?.courseCategoryName}}</a></div>
+							</div>
+
+						</div>
+
+						<!-- Course Image -->
+						<div class="course_image">
+							<!-- <iframe src="https://youtube.com/embed/ue80QwXMRHg?controls=0&start=50" width="840" height="545"></iframe> -->
+							<iframe width="905" height="545" [src]="link"></iframe>
+						</div>
+
+					
+					</div>
+				</div>
+
+				<!-- Course Sidebar -->
+				<div class="col-lg-4">
+					<div class="sidebar">
+
+						<!-- Feature -->
+						<div class="sidebar_section" style="display: inline-block; margin-bottom: 30px;">
+							<div class="sidebar_section_title"><b>{{list_item[0]?.name}}</b></div>
+							<div class="sidebar_feature">
+								<!-- Features -->
+								<div class="feature_list">
+
+
+									<!-- Feature -->
+									<div (click)="selectImage(i.linkJoin)" class="feature d-flex flex-row align-items-center justify-content-start" *ngFor="let i of list_item" style="float: left;">
+										<div class="feature_title">
+											<i class="fa fa-file-text-o" aria-hidden="true"></i>
+											<span style="cursor: pointer;">{{i?.title}}</span>
+										</div>
+									</div> 								
+									
+
+								</div>
+							</div>
+						</div>
+
+						<!-- Feature -->
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">Giáo viên</div>
+							<div class="sidebar_teacher">
+								<div class="teacher_title_container d-flex flex-row align-items-center justify-content-start">
+									<div class="teacher_image"><img src="{{list_item[0]?.teacheravatar}}" alt="" style="height: 100px;width: 80px;"></div>
+									<div class="teacher_title">
+										<div class="teacher_name"><a href="#">{{list_item[0]?.teacherName}}</a></div>
+										<div class="teacher_position">{{list_item[0]?.teacherDescription}}</div>
+									</div>
+								</div>
+								<div class="teacher_meta_container">
+									<!-- Teacher Rating -->
+									<div class="teacher_meta d-flex flex-row align-items-center justify-content-start">
+										<div class="teacher_meta_title">Đánh giá:</div>
+										<div class="teacher_meta_text ml-auto"><span>5.0</span><i class="fa fa-star" aria-hidden="true"></i></div>
+								
+								</div>
+								<div class="teacher_info">
+									<p>Không có giới hạn trong cách học, quy trình học. Con người luôn biết tìm cho mình con đường mới để có tri thức, điều đó sẽ khiến việc học không bao giờ buồn chán.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

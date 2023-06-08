@@ -1,0 +1,197 @@
+<!-- Main content -->
+<div class="content-wrapper">
+
+    <!-- Page header -->
+    <div class="page-header page-header-default">
+        <div class="page-header-content">
+            <div class="page-title">
+                <!-- <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"></span> Tài khoản cá nhân </h4> -->
+				<a href="#" style="margin-left: 10px;"><i class="fa fa-home" ></i> Home < </a>
+					<span>Thông tin cá nhân</span>
+				
+            </div>
+
+            
+        </div>
+
+        
+    </div>
+    <!-- /page header -->
+
+
+    <!-- Content area -->
+    <div class="content">
+		<section class="content-inner">
+			<div class="row"> 
+				<div class="colc-4 colc-s-6 content" >
+					<div class="container">
+		
+						<div  class="mySlides" style="display: grid;">
+							<img src="{{user.avatar}}">
+						</div>
+		
+					</div>
+					<script src="js/image_product.js"></script>
+				</div>
+				<div class="colc-8 colc-s-6 content padding-le" style="display: flex;">
+					<section class="describe">
+						<div class="title1">Thông tin cá nhân</div>
+						<h6 style="padding: 20px 0px 20px 0px;">Họ tên: {{user.name}}</h6> 
+						<h6 style="padding: 20px 0px 20px 0px;">Giới tính: {{getGender(user.gender).message}}</h6> 
+						<h6 style="padding: 20px 0px 20px 0px;">SĐT: {{user.phone}}</h6> 
+						<h6 style="padding: 20px 0px 20px 0px;">Email: {{user.email}}</h6> 
+						<h6 style="padding: 20px 0px 20px 0px;">Địa chỉ: {{user.address}}</h6>			
+					</section>
+					<section class="describe">
+						<div class="title1">Thông tin đăng nhập:</div>
+						<h6 style="padding: 20px 0px 20px 0px;">Tài khoản: {{user.email}}</h6> 			
+						<h6 style="padding: 20px 0px 20px 0px;">Mật khẩu: {{user.password}}</h6> 
+						
+					</section>
+					
+				</div>
+				<div class="product__details__button">
+					<button type="button" class="btnAdd"
+						(click)="openUpdateModal(user.id)"><i class="icon-fixed-width icon-pencil" ></i>Chỉnh sửa</button>
+				</div>
+				<script src="assets/js/cart.js"></script>
+				
+			</div>
+			
+		</section>
+		
+    </div>
+    <!-- /content area -->
+
+</div>
+<!-- /main content -->
+<div *ngIf="showUpdateModal" class="modal fade" id="createSanPhamModal">
+	<div class="modal-dialog modal-xl" style="width: 900px;">
+		<div class="modal-content">
+			<form *ngIf="doneSetupForm"  [formGroup]="frmStudent" (ngSubmit)="onSubmit(frmStudent.value)"
+				class="form-horizontal" style="margin: 0px;">
+				<div class="modal-body" style="padding-left: 50px !important; padding-right:50px !important;">
+                    <div class="form-group">
+						<label class="col-lg-3 control-label"></label>
+						<div class="col-lg-9">
+							<div class="media no-margin-top">
+								<div class="media-left">
+									<a href="#"><img
+											[src]="student && student.avatar?student.avatar:'assets/images/placeholder.jpg'"
+											style="width: 58px; height: 58px; margin-right: 15px;" class="img-rounded" alt=""></a>
+								</div>
+
+								<div class="media-body">
+									<input (change)="upload($event)" accept=".jpg,.png,.jpeg,.gif,.bmp,.tif,.tiff"
+										type="file" class="file-styled">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label" style="margin-top: 16px;">Họ tên<span style="color:red ;">*</span></label>
+						<div class="col-lg-9" style="margin-top: 15px;">
+							<!-- <textarea formControlName="txt_tenhocvien" type="text" class="form-control" placeholder=""></textarea> -->
+							<input type="text" placeholder="" class="form-control" formControlName="txt_tenhocvien"/>
+							<div *ngIf="tenhocvien.invalid && (tenhocvien.dirty || tenhocvien.touched)">
+								<div *ngIf="tenhocvien.errors?.['required']" style="color:red ;">Tên không được rỗng</div>
+								<div *ngIf="tenhocvien.errors?.['minlength']" style="color:red ;">
+									Tên không được nhỏ hơn 3 ký tự
+								</div>
+								<div *ngIf="tenhocvien.errors?.['maxlength']" style="color:red ;">
+									Tên không được lớn hơn 250 ký tự
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label" style="margin-top: 16px;">SĐT<span style="color:red ;">*</span></label>
+						<div class="col-lg-9" style="margin-top: 15px;">
+							<!-- <textarea formControlName="txt_phone" type="text" class="form-control" placeholder="" ></textarea> -->
+							<input type="text" placeholder="" class="form-control" formControlName="txt_phone"/>
+							<div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+								<div *ngIf="phone.errors?.['required']" style="color:red ;"></div>
+								<div *ngIf="phone.errors?.['minlength']" style="color:red ;">
+								</div>
+								<div *ngIf="phone.errors?.['maxlength']" style="color:red ;">
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label class="col-lg-3 control-label" style="margin-top: 16px;">Email<span style="color:red ;">*</span></label>
+						<div class="col-lg-9" style="margin-top: 15px;">
+							<!-- <textarea formControlName="txt_email" type="text" class="form-control" placeholder="" ></textarea> -->
+							<input type="text" placeholder="" class="form-control" formControlName="txt_email"/>
+							<div *ngIf="email.invalid && (email.dirty || email.touched)">
+								<div *ngIf="email.errors?.['required']" style="color:red ;"></div>
+								<div *ngIf="email.errors?.['minlength']" style="color:red ;">
+								</div>
+								<div *ngIf="email.errors?.['maxlength']" style="color:red ;">
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label class="col-lg-3 control-label"style="margin-top: 16px;">Địa chỉ<span style="color:red ;">*</span></label>
+						<div class="col-lg-9" style="margin-top: 15px;">
+							<!-- <textarea formControlName="txt_address" type="text" class="form-control" placeholder="" ></textarea> -->
+							<input type="text" placeholder="" class="form-control" formControlName="txt_address"/>
+							<div *ngIf="address.invalid && (address.dirty || address.touched)">
+								<div *ngIf="address.errors?.['required']" style="color:red ;"></div>
+								<div *ngIf="address.errors?.['minlength']" style="color:red ;">
+								</div>
+								<div *ngIf="address.errors?.['maxlength']" style="color:red ;">
+								</div>
+							</div>
+						</div>
+					</div>
+                    
+                    <div class="form-group">
+						<label class="col-lg-3 control-label" style="margin-top: 16px;">Gender<span style="color:red ;">*</span></label>
+						<select class="select2" formControlName="txt_gender" style="height: 40px;width: 190px;margin-left: 14px; border-radius: 5px;margin-top: 15px;">
+							<option selected value="0">Nữ</option>
+							<option value="1">Nam</option>
+						</select>
+					</div>
+                    <div class="form-group">
+						<label class="col-lg-3 control-label">DOB<span style="color:red ;">*</span></label>
+						<div class="col-lg-9" >
+							<!-- <textarea formControlName="txt_dob" type="text" class="form-control" placeholder=""></textarea> -->
+							<input type="text" placeholder="" class="form-control" formControlName="txt_dob"/>
+							<div *ngIf="dob.invalid && (dob.dirty || dob.touched)">
+								<div *ngIf="dob.errors?.['required']" style="color:red ;"></div>
+								<div *ngIf="dob.errors?.['minlength']" style="color:red ;">
+								</div>
+								<div *ngIf="dob.errors?.['maxlength']" style="color:red ;">
+								</div>
+							</div>
+						</div>
+					</div>
+                    
+                    
+					<div class="form-group">
+						<label class="col-lg-3 control-label" style="margin-top: 16px;">Password<span style="color:red ;">*</span></label>
+						<div class="col-lg-9" style="margin-top: 15px;">
+							<!-- <textarea formControlName="txt_password" type="text" class="form-control" placeholder=""></textarea> -->
+							<input type="text" placeholder="" class="form-control" formControlName="txt_password"/>
+							<div *ngIf="password.invalid && (password.dirty || password.touched)">
+								<div *ngIf="password.errors?.['required']" style="color:red ;"></div>
+								<div *ngIf="password.errors?.['minlength']" style="color:red ;">
+								</div>
+								<div *ngIf="password.errors?.['maxlength']" style="color:red ;">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+		
+				<div class="modal-footer" style="display: table;">
+					<button type="button" class="btn btn-link" (click)="closeModal()">Đóng</button>
+					<button type="submit" class="btn btn-primary" [disabled]="frmStudent.invalid">Lưu lại</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div> 
